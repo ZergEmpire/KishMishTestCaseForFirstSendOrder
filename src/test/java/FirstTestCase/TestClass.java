@@ -18,6 +18,10 @@ public class TestClass extends TestBase {
         selectDeliveryTypePickUp();
         selectTerminalForPickUp();
         fillInFields();
+        selectPayType();
+        sendOrder();
+        waitForComplete();
+
 
 
 

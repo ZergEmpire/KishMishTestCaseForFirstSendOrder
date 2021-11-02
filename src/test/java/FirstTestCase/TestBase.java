@@ -90,11 +90,6 @@ public class TestBase {
         open(name[index]);
     }
 
-    @Step("кликаю на переход к главной странице")
-    public void goMainPage (){
-        $x("//div[contains(@class, \"h-left\")]/div[@class = \"logo\"]").click();
-    }
-
     @Step("Перехожу в рандомный пункт меню для оформления тестового заказа")
     public void mathRandomHead() {
         List<SelenideElement> mathRandomHead = elements(By.xpath("//div[@class = \"cat-list\"]/ul/li/a[contains(text(), \"\") and not (contains(text(), \"Конструктор WOK\"))]"));
@@ -145,7 +140,7 @@ public class TestBase {
     @Step("Выбираю способ оплаты (Наличными); указываю сдачу с 5000р")
     public void selectPayType() {
         SelenideElement CHANGE_INPUT = $("#change");
-        $(CHANGE_INPUT).closest(".pay-method").scrollIntoView(false).click();
+        $(CHANGE_INPUT).closest(".address-selector-container").scrollIntoView(false).click();
         $(CHANGE_INPUT).setValue(HOW_MONEY_TO_COURIER);
     }
 
@@ -154,7 +149,7 @@ public class TestBase {
     public void sendOrder() {
  /* $x("//div[@id = \"pay-info\"]").scrollTo();
         $x("//div[@class = \"item-cart-buttons\" ]/button[contains(@class, \"btn\") and not (@id)]").shouldBe(visible).click();*/
-        $x("//div[@class = \"item-cart-buttons\" ]/button[contains(@class, \"btn\") and not (@id)]").scrollTo().click();
+        $x("//button[@id = \"sendOrder\"]").scrollTo().click();
     }
 
     @Step("Жду перехода в статус принят")
